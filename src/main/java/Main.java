@@ -1,24 +1,22 @@
-import java.sql.SQLOutput;
+import javax.sound.midi.Soundbank;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("\n\n== Start Kalkulator ver0.01b ==\n\n");
+        //TODO: testy
 
-        Integer wybór = null;
-        Integer liczbaA = null;
-        Integer liczbaB = null;
-        Integer wynik = null;
+        System.out.println("=== Witaj a programie Kalkulator ver.0.01b");
 
-        Menu.mainMenu();
+        App app = new App();
+        Operation operation = new Operation();
 
+        app.start(operation);
+        System.out.println("Wynik: " + operation.calculate());
 
-        Operation op = new Operation(liczbaA,liczbaB,wybór);
-        wynik = op.calculate();
-
-        System.out.println("Oto Twój wynik: " + wynik);
-
-
+        Integer cont = Menu.continueApp();
+        while (cont == 1) {
+            app.start(operation);
+            System.out.println("Wynik");
+            cont = Menu.continueApp();
+        }
     }
-
-    static void setVariableValuesa
 }

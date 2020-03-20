@@ -15,10 +15,21 @@ public class Menu {
         System.out.println("Wybór: ");
     }
 
-    public static void continueApp() {
+    public static Integer continueApp() {
         System.out.println("Kontynuuj? ...");
         System.out.println("1. TAK. Nowe działanie.");
         System.out.println("2. NIE. Zamknij Kalkulator.");
+
+        Integer choice = userChoice();
+
+        while(choice > 2 || choice < 1) {
+            System.out.println("Niepoprawy wybór. Spróbuj jeszcze raz!");
+            System.out.println("1. TAK. Nowe działanie.");
+            System.out.println("2. NIE. Zamknij Kalkulator.");
+            choice = userChoice();
+        }
+
+        return choice;
     }
 
     public static Integer userChoice() {
@@ -28,11 +39,10 @@ public class Menu {
         try {
             userInput = scanner.nextInt();
         } catch (InputMismatchException e) {
+            userInput = -1;
             System.out.println("Błąd!! Wprowadzona wartość nie jest liczbą!");
         }
 
         return userInput;
     }
-
-
 }

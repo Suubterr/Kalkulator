@@ -4,6 +4,9 @@ public class Operation {
     Integer numberB;
     Integer operationType;
 
+    public Operation() {
+    }
+
     public Operation(Integer numberA, Integer numberB, Integer operationType) {
         this.numberA = numberA;
         this.numberB = numberB;
@@ -51,7 +54,7 @@ public class Operation {
             case 5:
                 return power();
             default:
-                System.out.println("Błąd! Niepoprawny wybór!");
+                System.out.println("Wybrana opcja nie istnieje: " + operationType);
                 return null;
         }
     }
